@@ -73,6 +73,20 @@ databaseConnector(databaseURL)
     `);
   });
 
+app.get("/databaseHealth", (request, response) => {
+  let databaseState = mongoose.connection.readyState;
+  let databaseName = mongoose.connection.name;
+  let databaseModels = mongoose.connection.modelNames();
+  let databaseHost = mongoose.connection.host;
+
+  response.json({
+    readyState: databaseState,
+    dbName: databaseName,
+    dbModels: databaseModels,
+    dbHost: databaseHost,
+  });
+});
+
 // Routes
 app.get("/", (request, response) => {
   response.json({
