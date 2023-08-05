@@ -5,6 +5,6 @@ const { app, PORT } = require("./server");
 app.listen(PORT,  () => {
   // function will be executed when the server starts successfully
   console.log(`
-  Server is running on http://${HOST}:${PORT}
+  Server is running 
     `);
 });
