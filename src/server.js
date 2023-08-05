@@ -1,5 +1,5 @@
 // Get .env
-const dotenv = require("dotenv");
+const dotenv = require("dotenv")
 dotenv.config();
 
 // Import express and initialize
@@ -15,7 +15,7 @@ const HOST = process.env.HOST || '127.0.0.1'
 
 
 // Configure helmet
-const helmet = require("helmet");
+const helmet = require("helmet")
 app.use(helmet());
 app.use(helmet.permittedCrossDomainPolicies());
 app.use(helmet.referrerPolicy());
@@ -25,18 +25,16 @@ app.use(
       defaultSrc: ["'self'"],
     },
   })
-);
+)
 
 // Configure CORS
-const cors = require("cors");
+const cors = require("cors")
 let corsOptions = {
   origin: ["http://localhost:3000", "https://docgo2.netlify.app"],
   optionsSuccessStatus: 200,
-};
-app.use(cors(corsOptions));
+}
+app.use(cors(corsOptions))
 
-// Add axios
-const axios = require("axios");
 
 // Enable JSON
 app.use(express.json());
@@ -61,10 +59,10 @@ switch (process.env.NODE_ENV.toLowerCase()) {
 }
 
 // Connect to the db
-const { databaseConnector } = require("./database");
+const { databaseConnector } = require("./database")
 databaseConnector(databaseURL)
   .then(() => {
-    console.log("Database connected successfully!");
+    console.log("Database connected successfully!")
   })
   .catch((error) => {
     console.log(`
@@ -118,9 +116,6 @@ app.get("*", (request, response) => {
   });
 });
 
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
 
 // Export necessary data to run the server
 module.exports = {
