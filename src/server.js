@@ -10,8 +10,9 @@ const app = express();
 const mongoose = require("mongoose");
 
 // Configure host and port & provide default values
-const HOST = process.env.HOST || "0.0.0.0";
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3001
+const HOST = process.env.HOST || '127.0.0.1'
+
 
 // Configure helmet
 const helmet = require("helmet");
