@@ -29,7 +29,7 @@ app.use(
 // Configure CORS
 const cors = require("cors");
 let corsOptions = {
-  origin: ["http://localhost:3001", "https://docgo2.netlify.app"],
+  origin: ["http://localhost:3000", "https://docgo2.netlify.app"],
   optionsSuccessStatus: 200,
 };
 app.use(cors(corsOptions));
