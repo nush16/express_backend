@@ -28,7 +28,7 @@ app.use(
 
 // Configure CORS
 const cors = require("cors");
-var corsOptions = {
+let corsOptions = {
   origin: ["http://localhost:3001", "https://docgo2.netlify.app"],
   optionsSuccessStatus: 200,
 };
@@ -73,6 +73,13 @@ databaseConnector(databaseURL)
     `);
   });
 
+// Routes
+app.get("/", (request, response) => {
+  response.json({
+    message: "welcome!",
+  });
+});
+
 // Import and setup JWT middleware for authentication
 const jwtMiddleware = require("./middlewares/auth.js");
 // app.use(jwtMiddleware); // Removed the extra function call
@@ -89,15 +96,8 @@ app.use("/patients", patientRouter);
 const appointmentRouter = require("./routes/appointment_router");
 app.use("/appointments", appointmentRouter);
 
-// Routes
-app.get("/", (request, response) => {
-  response.json({
-    message: "welcome!",
-  });
-});
-
 // Route for handling 404 errors (no route found)
-app.use("*", (request, response) => {
+app.get("*", (request, response) => {
   response.status(404).json({
     message: "No route with that path found!",
     attemptedPath: request.path,
