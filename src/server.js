@@ -60,21 +60,6 @@ switch (process.env.NODE_ENV.toLowerCase()) {
     break;
 }
 
-// Route to check the health of the database connection
-app.get("/databaseHealth", (request, response) => {
-  let databaseState = mongoose.connection.readyState;
-  let databaseName = mongoose.connection.name;
-  let databaseModels = mongoose.connection.modelNames();
-  let databaseHost = mongoose.connection.host;
-
-  response.json({
-    readyState: databaseState,
-    dbName: databaseName,
-    dbModels: databaseModels,
-    dbHost: databaseHost,
-  });
-});
-
 // Connect to the db
 const { databaseConnector } = require("./database");
 databaseConnector(databaseURL)
@@ -87,8 +72,6 @@ databaseConnector(databaseURL)
     ${error}
     `);
   });
-
-dbConnect();
 
 // Import and setup JWT middleware for authentication
 const jwtMiddleware = require("./middlewares/auth.js");
