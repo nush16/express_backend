@@ -103,6 +103,13 @@ app.use("/patients", patientRouter);
 const appointmentRouter = require("./routes/appointment_router");
 app.use("/appointments", appointmentRouter);
 
+// Routes
+app.get("/", (request, response) => {
+  response.json({
+    message: "Hello world!",
+  });
+});
+
 // Route for handling 404 errors (no route found)
 app.use("*", (request, response) => {
   response.status(404).json({

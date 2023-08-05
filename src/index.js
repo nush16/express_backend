@@ -1,5 +1,5 @@
 // Import necessary modules and constants
-var { app, PORT } = require("./server");
+const { app, PORT } = require("./server");
 
 // Starting the server and listening on the specified host and port
 app.listen(PORT, () => {
