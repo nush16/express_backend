@@ -57,7 +57,6 @@ switch (process.env.NODE_ENV.toLowerCase()) {
     console.error(
       "Incorrect JS environment specified, database will not be connected."
     );
-    break;
 }
 
 // Connect to the db
