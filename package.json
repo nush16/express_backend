@@ -6,7 +6,11 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "NODE_ENV=production node src/index.js",
-    "dev": "NODE_ENV=development nodemon src/index.js"
+    "dev": "NODE_ENV=development nodemon src/index.js",
+    "seed":"SEED=true NODE_ENV=development node src/seeds.js",
+    "wipe":"WIPE=true SEED=true NODE_ENV=development node src/seeds.js",
+    "wipe-and-seed":"WIPE=true SEED=true NODE_ENV=development node src/seeds.js"
+
   },
   "author": "",
   "license": "ISC",
